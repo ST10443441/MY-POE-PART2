@@ -31,9 +31,11 @@ public class BaseForm extends javax.swing.JFrame {
         lblLogInPage = new javax.swing.JLabel();
         btnLogin = new javax.swing.JButton();
         btnRegister = new javax.swing.JButton();
-        tfOutput = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tpOutPut = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblLogInPage.setText("Please Select An Option");
 
@@ -79,29 +81,11 @@ public class BaseForm extends javax.swing.JFrame {
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(288, 288, 288)
-                        .addComponent(pnlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(tfOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(124, 124, 124)
-                .addComponent(pnlLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tfOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
+        getContentPane().add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
+
+        jScrollPane1.setViewportView(tpOutPut);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 467, 98));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,6 +95,10 @@ public class BaseForm extends javax.swing.JFrame {
     ProjectP2 obj = new ProjectP2();
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        if (obj.loginUser())
+        {
+            pnlLogin.setVisible(false);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     
@@ -122,14 +110,19 @@ public class BaseForm extends javax.swing.JFrame {
         if (reg)
         {
             btnRegister.setVisible(false);
-        }
-        
-        
+        }        
     }//GEN-LAST:event_btnRegisterActionPerformed
     
+    //Allows Main to get the text from the TextPane
+    public String getTextOut()
+    {
+       return tpOutPut.getText();
+    }
+    
+    //Allows Main class to set the TextPane Text
     public void setOutput(String out)
     {
-        tfOutput.setText(out);
+        tpOutPut.setText(out);        
     }
     
     
@@ -172,8 +165,9 @@ public class BaseForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblLogInPage;
     private javax.swing.JPanel pnlLogin;
-    private javax.swing.JTextField tfOutput;
+    private javax.swing.JTextPane tpOutPut;
     // End of variables declaration//GEN-END:variables
 }

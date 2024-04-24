@@ -21,11 +21,14 @@ public class ProjectP2 {
     }
     //Adding Variables to global 
     public String userName, password, nameFirst, nameLast;
-    
+    static BaseForm form = new BaseForm();
     public String message;
     public static void main(String[] args) 
     {
         // TODO code application logic here
+        
+        
+        form.setVisible(true);
     }
     public boolean registerUser()
     {
@@ -108,8 +111,9 @@ public class ProjectP2 {
     
     public void output(String out)
     {
-        BaseForm obj = new BaseForm();
-        obj.setOutput(out);
+        
+        
+        form.setOutput(out);
     }
     
     public String getMessage()
@@ -120,7 +124,7 @@ public class ProjectP2 {
     public String returnLoginStatus(boolean lC)
     {
         if (lC)
-            return "A Successful Login";
+            return form.getTextOut()+"\nA Successful Login";
         else
             return "A Failed Login";
         

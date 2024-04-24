@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Aries
+ * @author Cameron Griffin ST10443441
  */
 public class ProjectP2Test {
     

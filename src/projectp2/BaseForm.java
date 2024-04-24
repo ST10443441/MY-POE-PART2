@@ -6,7 +6,7 @@ package projectp2;
 
 /**
  *
- * @author lab_services_student
+ * @author Cameron Griffin ST10443441
  */
 public class BaseForm extends javax.swing.JFrame {
 
@@ -33,8 +33,10 @@ public class BaseForm extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tpOutPut = new javax.swing.JTextPane();
+        lblLogin = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(1000, 400));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblLogInPage.setText("Please Select An Option");
@@ -57,37 +59,42 @@ public class BaseForm extends javax.swing.JFrame {
         pnlLogin.setLayout(pnlLoginLayout);
         pnlLoginLayout.setHorizontalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlLoginLayout.createSequentialGroup()
-                .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlLoginLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(btnLogin)
-                        .addGap(34, 34, 34)
-                        .addComponent(btnRegister))
-                    .addGroup(pnlLoginLayout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(lblLogInPage)))
-                .addContainerGap(34, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblLogInPage)
+                .addGap(47, 47, 47))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLoginLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(btnLogin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(btnRegister)
+                .addGap(30, 30, 30))
         );
         pnlLoginLayout.setVerticalGroup(
             pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLoginLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(15, 15, 15)
                 .addComponent(lblLogInPage, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLogin)
-                    .addComponent(btnRegister))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addComponent(btnRegister)
+                    .addComponent(btnLogin))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        getContentPane().add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, -1, -1));
+        getContentPane().add(pnlLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 73, -1, 90));
 
         jScrollPane1.setViewportView(tpOutPut);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 467, 98));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 467, 98));
 
-        pack();
+        lblLogin.setFont(new java.awt.Font("Arial Narrow", 0, 24)); // NOI18N
+        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin.setText("Welcome to the Login Page");
+        getContentPane().add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 320, 40));
+
+        setSize(new java.awt.Dimension(614, 337));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -167,6 +174,7 @@ public class BaseForm extends javax.swing.JFrame {
     private javax.swing.JButton btnRegister;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblLogInPage;
+    private javax.swing.JLabel lblLogin;
     private javax.swing.JPanel pnlLogin;
     private javax.swing.JTextPane tpOutPut;
     // End of variables declaration//GEN-END:variables

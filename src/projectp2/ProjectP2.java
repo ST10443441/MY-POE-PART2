@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author lab_services_student
+ * @author Cameron Griffin ST10443441
  */
 public class ProjectP2 {
 

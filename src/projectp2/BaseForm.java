@@ -86,7 +86,7 @@ public class BaseForm extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(tpOutPut);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 467, 98));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 467, 98));
 
         lblLogin.setFont(new java.awt.Font("Arial Narrow", 0, 24)); // NOI18N
         lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -105,6 +105,7 @@ public class BaseForm extends javax.swing.JFrame {
         if (obj.loginUser())
         {
             pnlLogin.setVisible(false);
+            obj.changeForms();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 

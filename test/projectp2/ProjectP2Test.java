@@ -74,6 +74,123 @@ public class ProjectP2Test {
         assertTrue(l);  }  
     }
 
+    //Task One
+    @Test
+    public void testTaskOneTName()
+    {
+     //Arrange 
+        String exTaskName = "Login Feature";
+        //Act 
+        ProjectP2 p = new ProjectP2();
+        String acTaskName = p.settName();
+        //Assert
+        assertEquals(exTaskName, acTaskName);    
+    }
     
+    @Test
+    public void testTaskOneTDes()
+    {
+     //Arrange 
+        TaskClass taskClass =new TaskClass();
+        String expected = "Create Login to authenticate users";
+
+        //Assert
+        assertTrue(taskClass.checkTaskDescription(expected));    
+    }
     
+    @Test
+    public void testTaskOneDevDetails()
+    {
+     //Arrange 
+        String expected = "Robyn Harrison";
+        //Act 
+        ProjectP2 p = new ProjectP2();
+        String actual = p.setDevDetails();
+        //Assert
+        assertEquals(expected, actual);    
+    }
+    
+    @Test
+    public void testTaskOneDur()
+    {
+     //Arrange 
+        String expected = "8hrs";
+        //Act 
+        ProjectP2 p = new ProjectP2();
+        String actual = String.valueOf(p.setDur())+"hrs";
+        //Assert
+        assertEquals(expected, actual);    
+    }
+    
+    @Test
+    public void testTaskOneStatus()
+    {
+     //Arrange 
+        String expected = "To Do";
+        //Act 
+        ProjectP2 p = new ProjectP2();
+        String actual = p.setStatus(0);
+        //Assert
+        assertEquals(expected, actual);    
+    }
+    
+    //Task Two
+    @Test
+    public void testTaskTwoTName()
+    {
+     //Arrange 
+        String exTaskName = "Add Task Feature";
+        //Act 
+        ProjectP2 p = new ProjectP2();
+        String acTaskName = p.settName();
+        //Assert
+        assertEquals(exTaskName, acTaskName);    
+    }
+    
+    @Test
+    public void testTaskTwoTDes()
+    {
+     //Arrange 
+        TaskClass taskClass =new TaskClass();
+        String expected = "Create Add Task feature to add task users";
+
+        //Assert
+        assertTrue(taskClass.checkTaskDescription(expected));    
+    }
+    
+    @Test
+    public void testTaskTwoDevDetails()
+    {
+     //Arrange 
+        String expected = "Mike Smith";
+        //Act 
+        ProjectP2 p = new ProjectP2();
+        String actual = p.setDevDetails();
+        //Assert
+        assertEquals(expected, actual);    
+    }
+    
+    @Test
+    public void testTaskTwoDur()
+    {
+     //Arrange 
+        String expected = "10hrs";
+        //Act 
+        ProjectP2 p = new ProjectP2();
+        String actual = String.valueOf(p.setDur())+"hrs";
+        //Assert
+        assertEquals(expected, actual);    
+    }
+    
+    @Test
+    public void testTaskTwoStatus()
+    {
+     //Arrange 
+        String expected = "Doing";
+        //Act 
+        ProjectP2 p = new ProjectP2();
+        String actual = p.setStatus(2);
+        //Assert
+        assertEquals(expected, actual);    
+    }
 }

@@ -4,6 +4,7 @@
  */
 package projectp2;
 
+import java.lang.reflect.Modifier;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,7 +14,10 @@ import javax.swing.JOptionPane;
 public class ProjectP2 {
 
     String getMessage;
-
+    //For Adding Tasks
+    String tName, tDes,devDetails,tID,tStatus;
+    int tNum ,duration,totDuration = 0;
+    String[] status = {"To Do","Done","Doing"};
     
     public ProjectP2()
     {
@@ -271,27 +275,24 @@ public class ProjectP2 {
     
     public void addNew(int t)
     {
-        String tName, tDes,devDetails,tID,tStatus;
-        String[] status = {"To Do","Done","Doing"};
-        int tNum ,choice,duration,totDuration = 0;
-        int last = kanBan.getLastID();
-        
+        int last = kanBan.getLastID(),choice;
         
         for (int i = 0; i < t; i++) 
         {
             //Gets the Data from the User
-            tName =JOptionPane.showInputDialog("Task Name");
-            devDetails= JOptionPane.showInputDialog("First and Last Name of Dev");
+            tName =settName();
+            devDetails=  setDevDetails();
             
             choice = JOptionPane.showOptionDialog(null, "Choose an Option:", "Options", JOptionPane.YES_NO_CANCEL_OPTION, 0, null, status, status[0]);
-            tStatus = status[choice];
-            duration = Integer.parseInt(JOptionPane.showInputDialog("How will it take in hours?"));
+            
+            tStatus = setStatus(choice);
+            duration = setDur();
             taskClass.setTotalHours(duration);
-            tDes= addNewDescription();
+            tDes= settDes();
             tNum = i+ last;
             
             //Generates the Task Id 
-            tID = taskClass.createTaskID(tName, tNum);
+            tID = settID();
             
             
             
@@ -300,6 +301,37 @@ public class ProjectP2 {
             
         }
         JOptionPane.showMessageDialog(null, taskClass.returnTotalHours()+" Hours","Total Duration",1);
+    }
+
+    public String settName() 
+    {
+        return JOptionPane.showInputDialog("Task Name");
+    }
+
+    public String setDevDetails() 
+    {
+        return JOptionPane.showInputDialog("First and Last Name of Dev");
+    }
+    
+    public String settDes() 
+    {
+        String d = addNewDescription();
+        return d;
+    }
+
+    public String  settID() 
+    {
+        return taskClass.createTaskID(tName, tNum);
+    }
+    
+    public String  setStatus(int i) 
+    {
+        return status[i];
+    }
+    
+    public int setDur() 
+    {
+        return Integer.parseInt(JOptionPane.showInputDialog("How will it take in hours?"));
     }
     
     private String addNewDescription()
@@ -312,7 +344,7 @@ public class ProjectP2 {
         if (taskClass.checkTaskDescription(des))
         {
             do {            
-                des = JOptionPane.showInputDialog("Description MUST BE Under 51 Characters");
+                des = JOptionPane.showInputDialog("Please enter a task descrpitin of less than 50 characters");
             } while (des.length() > 50);
         }
         else 
@@ -330,3 +362,6 @@ public class ProjectP2 {
 
 //W3Schools. 1998. To Create simplified and interavtive learning experiences,
 // 17 November 2015. [Online]. Available at: https://www.w3schools.com/java/java_while_loop.asp [Accessed 31 March 2024].
+
+//Serplat. 2010. How to add row in JTable? (Version 1.0) [Source code].
+//https://stackoverflow.com/questions/3549206/how-to-add-row-in-jtable (Accessed 03 May 2024).

@@ -150,7 +150,7 @@ public class EasyKanBan extends javax.swing.JFrame {
     public void setTable(String tName,String tDes,String devDetails,String tID,String tStatus,int tNum,int duration)
     {
         //Add Values to the Table
-        String[] row = {tStatus,devDetails,String.valueOf(tNum),tName,tDes,tID,String.valueOf(duration)};
+        String[] row = {tStatus,devDetails,String.valueOf(tNum),tName,tDes,tID,String.valueOf(duration)};   //Serplat (2024)
         DefaultTableModel model = (DefaultTableModel) tblOutput.getModel(); 
         model.addRow(row);
         last = tNum;

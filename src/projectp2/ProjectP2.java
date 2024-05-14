@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class ProjectP2 {
 
-    String getMessage;
+    
     //For Adding Tasks
     String tName, tDes,devDetails,tID,tStatus;
     int tNum ,duration,totDuration = 0;
@@ -24,7 +24,7 @@ public class ProjectP2 {
 
     }
     //Adding Variables to global 
-    public String userName, password, nameFirst, nameLast;
+    private String userName, password, nameFirst, nameLast;
     static BaseForm form = new BaseForm();
     static EasyKanBan kanBan = new EasyKanBan();
     TaskClass taskClass = new TaskClass();
@@ -35,11 +35,13 @@ public class ProjectP2 {
         form.setVisible(true);
         kanBan.setVisible(true);
     }
+    //Register a new user
     public boolean registerUser()
     {
         //create varibles to help chack if Username and Password are valid
         boolean userVal = false, passVal = false;
         
+        //Input username for registration
         do
         {
         //Check Username
@@ -53,23 +55,19 @@ public class ProjectP2 {
             //Print out for Username Check
             if (checkUserName(userName))
             {
-                System.out.println(userName);                                 //Show Username for Dev
-    //            System.out.println("Username Successfully Captured");
+                System.out.println(userName);       //Show Username for Dev
                 output("Username Successfully Captured"); 
                 userVal = true;
             }
-            else 
+            else //Username is incorrectly formatted
             {
-    //            System.out.println("Username is not correctly formatted, "
-    //                    + "\nPlease ensure that your username contains \nan underscore"
-    //                    + " and \nis no more than 5 characters in length");
                 output("Username is not correctly formatted, "       
                         + "\nPlease ensure that your username contains \nan underscore"
                         + " and \nis no more than 5 characters in length");
             }
         }while(!userVal);
         
-        
+        //Input Password for registration
         do
         {
             //Check Password
@@ -82,16 +80,12 @@ public class ProjectP2 {
             
             if (checkPasswordComplexity(password))
             {                
-                System.out.println(password);                                 //Show Password for Dev
-    //            System.out.println("Password Successfully captured");
+                System.out.println(password);       //Show Password for Dev
                 output("Password Successfully captured");
                 passVal = true;
             }
-            else         
+            else    //Password incorrectly formatted
             {
-    //            System.out.println("\nPassword is not correct "
-    //                    + "please ensure that your Password contains atleast: \n8 Characters"
-    //                    + ", \na capital letter, \na number and \na special character");
                 output("Password is not correct "
                         + "please ensure that your Password contains atleast: \n8 Characters"
                         + ", \na capital letter, \na number and \na special character");
@@ -104,7 +98,6 @@ public class ProjectP2 {
         
         if ((checkUserName(userName))&&checkPasswordComplexity(password))
         {
-//            System.out.println("Successfully Registered");
             output("Successfully Registered");
             //Return True if Username and Password are valid
             return true;
@@ -113,20 +106,24 @@ public class ProjectP2 {
             //Return False if Username and Password are valid
             return false;
     }
-    
+    //Out put the message to the User and developer
     public void output(String out)
     {
         form.setOutput(out);
+        kanBan.setOutput(out);
+        System.out.println(out);
     }
+    //Login existing user
     public boolean loginUser()
     {
-        String /**userFirst ,userLast,*/ userLogin, userPass;
+        //Create local variables
+        String userLogin, userPass;
         boolean loginCheck = false;
         int i = 0;
         
         do
         {
-            //Input
+            //Input Username and Password
             userLogin = JOptionPane.showInputDialog("Please Enter Username to Login");
             userPass = JOptionPane.showInputDialog("Please Enter Password to Login");
             
@@ -139,48 +136,38 @@ public class ProjectP2 {
         //Test if usernames and Passwords match
             if ((userLogin.equals(userName))&&(userPass.equals(password)))
             {
-    //            System.out.println("Welcome "+nameFirst+", "+nameLast+" it is great to see you");
-                
                 output("Welcome "+nameFirst+", "+nameLast    
                         + " it is great to see you");        
                 loginCheck = true;
             }
             else 
             {
-    //            System.out.println("Usernsme or password incorrect please try again");
                 output("Usernsme or password incorrect please try again");
                 i++;
             }
         }while ((!loginCheck)&&(i != 3));                                   //(W3Schools,2015)
         
-//        System.out.println(returnLoginStatus(loginCheck));
         output(returnLoginStatus(loginCheck));
         return loginCheck;
     }
-    
-//    public String getMessage()
-//    {
-//        return message;
-//    }
-    
-    
+    //Open input for user's Username to register
     public String setUsername() 
     {
         return JOptionPane.showInputDialog("Please Enter Username To Register");
     }
-
+    //Open input for user's Password to register
     public String setPassword() 
     {
         return JOptionPane.showInputDialog("Enter Password For Registation");
     }
-    
+    //Check the Username is formatted correctly
     public boolean checkUserName(String s)
     {    
         //Check is Username is 5 or less characters long 
         //Check if Username contains "_"
         return (s.length() < 6) && (s.contains("_"));
     }
-    
+    //Check Password is complex enough 
     public boolean checkPasswordComplexity(String p)
     {
         //Declare varibles to check Password Complexity
@@ -190,7 +177,7 @@ public class ProjectP2 {
 
         //Check Password is Atleast 8 Characters long 
         len = p.length() >= 8;                                       //(OpenAI 2024)
-//        System.out.println("Password Length: "+ password.length());       //Show Dev Password Length
+        System.out.println("Password Length: "+ password.length());     //Show Dev Password Length
 
         //Check Password Contains Capital Letter
         for (int i = 0; i < p.length(); i++) 
@@ -199,7 +186,7 @@ public class ProjectP2 {
             {
                 //If password has Capital Letter set cap to True and end FOR Loop
                 cap = true;
-//                System.out.println("Has Upper Case");                     //Show Dev Password has a Capital
+                System.out.println("Password Has Upper Case");       //Show Dev Password has a Capital
                 i = p.length();                                      //End FOR Loop
             }  
         }        
@@ -210,7 +197,7 @@ public class ProjectP2 {
             {
                 //If password has a Number set num to True and end FOR Loop
                 num = true;
-//                System.out.println("Has Number");                         //Show Dev Password has a Number
+                System.out.println("Password Has Number");      //Show Dev Password has a Number
                 i = p.length();                                      //End FOR Loop
             }  
         }
@@ -221,14 +208,14 @@ public class ProjectP2 {
             {
                 //If password has a Special Charaacter set spec to True and end FOR Loop
                 spec = true;
-//                System.out.println("Has Special Character");              //Show Dev Password has a Special Character
+                System.out.println("Password Has Special Character");       //Show Dev Password has a Special Character
                 i = p.length();                                      //End FOR Loop
             }   
         }
         //Return True or False if password is Complex enough
         return (len) && (cap) && (num) && (spec);
     }
-    
+    //Returns the Login Status
     public String returnLoginStatus(boolean lC)
     {
         if (lC)
@@ -237,14 +224,25 @@ public class ProjectP2 {
             return "A Failed Login";
         
     }
-    
-    public void changeForms()
+    //Changes Forms from login to KanBan Forms
+    public void changeForms(int t)
     {
         //Changes forms from the base to the EasyKanBan Forms
-        form.setVisible(false);
-        kanBan.setVisible(true);
+        switch (t) {
+            case 0:
+                form.setVisible(false);
+                kanBan.setVisible(true);
+                break;
+            case 1:
+                form.setVisible(true);
+                kanBan.setVisible(false);
+                break;
+            default:
+                throw new AssertionError();
+        }
+        
     }
-    
+    //ALlows Users to choose the action they want
     public int options()
     {
         //Gets the choice from user using JOptionPane
@@ -254,92 +252,109 @@ public class ProjectP2 {
         
         return choice;
     }
-    
+    //Acts on the User's Choice 
     public void OptionAct(int choice)
     {
         switch (choice) {
             case 0:
+                //Inputs the Ammount of tasks User wants to add
                 int t = Integer.parseInt(JOptionPane.showInputDialog("How many Tasks to Add?"));
+                //Adds the Ammount of tasks user want to add
                 addNew(t);
                 break;
             case 1:
+                //Displays Coming Soon message for User
                 JOptionPane.showMessageDialog(null, "Coming Soon");
                 break;
             case 2: 
+                //Display end of action message to User
                 JOptionPane.showMessageDialog(null, "Thank You Have A good Day");
                 break;
             default:
                 throw new AssertionError();
         }
     }
-    
+    //Adds Tasks based on user Input
     public void addNew(int t)
     {
+        //Declare the Variables
         int last = kanBan.getLastID(),choice;
-        
+        //Adds an ammount of tasks based on User's choice 
         for (int i = 0; i < t; i++) 
         {
             //Gets the Data from the User
-            tName =settName();
-            devDetails=  setDevDetails();
-            
+            settName();
+            setDevDetails();
+            //MultiChoice for the Status of the Task being added
             choice = JOptionPane.showOptionDialog(null, "Choose an Option:", "Options", JOptionPane.YES_NO_CANCEL_OPTION, 0, null, status, status[0]);
             
-            tStatus = setStatus(choice);
-            duration = setDur();
+            setStatus(choice);
+            setDur();
             taskClass.setTotalHours(duration);
-            tDes= settDes();
+            settDes();
             tNum = i+ last;
             
             //Generates the Task Id 
-            tID = settID();
-            
-            
+            settID();
             
             taskClass.printTaskDetails(kanBan,tName, tDes, devDetails, tID, tStatus, tNum, duration);
-            
-            
         }
         JOptionPane.showMessageDialog(null, taskClass.returnTotalHours()+" Hours","Total Duration",1);
     }
-
-    public String settName() 
-    {
-        return JOptionPane.showInputDialog("Task Name");
+    
+    //Getters
+    public String gettName() {
+        return tName;
     }
-
-    public String setDevDetails() 
-    {
-        return JOptionPane.showInputDialog("First and Last Name of Dev");
+    public String gettDes() {
+        return tDes;
+    }
+    public String getDevDetails() {
+        return devDetails;
+    }
+    public String gettID() {
+        return tID;
+    }
+    public String gettStatus() {
+        return tStatus;
+    }
+    public int gettNum() {
+        return tNum;
+    }
+    public String getStatus(int t) {
+        return status[t];
+    }
+    public int getDur() {
+        return duration;
     }
     
-    public String settDes() 
-    {
-        String d = addNewDescription();
-        return d;
+    //Setters
+    public void settName(){
+        tName = JOptionPane.showInputDialog("Task Name");
     }
-
-    public String  settID() 
-    {
-        return taskClass.createTaskID(tName, tNum);
+    public void setDevDetails(){
+        devDetails = JOptionPane.showInputDialog("First and Last Name of Dev");
+    }
+    public void settDes(){
+        tDes = addNewDescription();
+        
+    }
+    public void  settID(){
+        tID  = taskClass.createTaskID(tName, tNum);
+    }
+    public void  setStatus(int i){
+        tStatus = status[i];
+    }
+    public void setDur(){
+        duration = Integer.parseInt(JOptionPane.showInputDialog("How will it take in hours?"));
     }
     
-    public String  setStatus(int i) 
-    {
-        return status[i];
-    }
-    
-    public int setDur() 
-    {
-        return Integer.parseInt(JOptionPane.showInputDialog("How will it take in hours?"));
-    }
-    
+    //Gets and tests that the Description is less than 50 Characters
     private String addNewDescription()
     {
-        //Gets and tests that the Description is less than 50 Characters
-        String des; 
-        
-        
+        //Declare Variables
+        String des;
+        //Input
         des = JOptionPane.showInputDialog("Description Under 51 Characters");
         if (taskClass.checkTaskDescription(des))
         {
@@ -348,11 +363,9 @@ public class ProjectP2 {
             } while (des.length() > 50);
         }
         else 
-            JOptionPane.showMessageDialog(null, "Task Successfully Captured");
+            output("Task Successfully Captured");
         return des;
     }
-
-
 }
 
 //OpenAI. (2024). ChatGPT (Jun 21 version) [GPT-3.5 model]. https://chat.openai.com/ 

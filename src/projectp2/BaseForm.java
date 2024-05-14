@@ -100,16 +100,17 @@ public class BaseForm extends javax.swing.JFrame {
     
     //Declaring Object for Project Class
     ProjectP2 obj = new ProjectP2();
+    //Login Button
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         if (obj.loginUser())
         {
             pnlLogin.setVisible(false);
-            obj.changeForms();
+            obj.changeForms(0);
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    
+    //Register Button
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         

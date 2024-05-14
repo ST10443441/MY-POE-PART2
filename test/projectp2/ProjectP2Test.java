@@ -18,7 +18,7 @@ public class ProjectP2Test {
 
     
      boolean run = false;
-    
+    //Test Username
      @Test
     public void testUsername() 
     {   
@@ -30,6 +30,8 @@ public class ProjectP2Test {
         //Assert
         assertEquals(expected, actual);
     }
+    //Test Password
+    
      @Test
     public void testPassword()
     {
@@ -43,6 +45,7 @@ public class ProjectP2Test {
         
         run = true;
     }
+    //Test Username Requirments
      @Test
     public void testUsernameRequirements()
     {
@@ -52,6 +55,7 @@ public class ProjectP2Test {
         //Assert
         assertTrue(check);
     }
+    //Test Password Complexity
      @Test
     public void testPasswordComplexity()
     {
@@ -61,7 +65,7 @@ public class ProjectP2Test {
         //Assert
         assertTrue(check);
     }
-    
+    //Test Login
     @Test
     public void testzLogin()
     {
@@ -75,6 +79,7 @@ public class ProjectP2Test {
     }
 
     //Task One
+    //Test Task Name
     @Test
     public void testTaskOneTName()
     {
@@ -82,11 +87,11 @@ public class ProjectP2Test {
         String exTaskName = "Login Feature";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String acTaskName = p.settName();
+        String acTaskName = p.gettName();
         //Assert
         assertEquals(exTaskName, acTaskName);    
     }
-    
+    //Test Task Description
     @Test
     public void testTaskOneTDes()
     {
@@ -97,7 +102,7 @@ public class ProjectP2Test {
         //Assert
         assertTrue(taskClass.checkTaskDescription(expected));    
     }
-    
+    //Test Task Developer Details
     @Test
     public void testTaskOneDevDetails()
     {
@@ -105,11 +110,11 @@ public class ProjectP2Test {
         String expected = "Robyn Harrison";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String actual = p.setDevDetails();
+        String actual = p.getDevDetails();
         //Assert
         assertEquals(expected, actual);    
     }
-    
+    //Test Task Duration
     @Test
     public void testTaskOneDur()
     {
@@ -117,11 +122,11 @@ public class ProjectP2Test {
         String expected = "8hrs";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String actual = String.valueOf(p.setDur())+"hrs";
+        String actual = String.valueOf(p.getDur())+"hrs";
         //Assert
         assertEquals(expected, actual);    
     }
-    
+    //Test Task Status
     @Test
     public void testTaskOneStatus()
     {
@@ -129,12 +134,13 @@ public class ProjectP2Test {
         String expected = "To Do";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String actual = p.setStatus(0);
+        String actual = p.getStatus(0);
         //Assert
         assertEquals(expected, actual);    
     }
     
     //Task Two
+    //Test Task Name
     @Test
     public void testTaskTwoTName()
     {
@@ -142,11 +148,11 @@ public class ProjectP2Test {
         String exTaskName = "Add Task Feature";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String acTaskName = p.settName();
+        String acTaskName = p.gettName();
         //Assert
         assertEquals(exTaskName, acTaskName);    
     }
-    
+    //Test Task Description
     @Test
     public void testTaskTwoTDes()
     {
@@ -157,7 +163,7 @@ public class ProjectP2Test {
         //Assert
         assertTrue(taskClass.checkTaskDescription(expected));    
     }
-    
+    //Test Task Developer Details
     @Test
     public void testTaskTwoDevDetails()
     {
@@ -165,11 +171,11 @@ public class ProjectP2Test {
         String expected = "Mike Smith";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String actual = p.setDevDetails();
+        String actual = p.getDevDetails();
         //Assert
         assertEquals(expected, actual);    
     }
-    
+    //Test Task Duration
     @Test
     public void testTaskTwoDur()
     {
@@ -177,11 +183,11 @@ public class ProjectP2Test {
         String expected = "10hrs";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String actual = String.valueOf(p.setDur())+"hrs";
+        String actual = String.valueOf(p.getDur())+"hrs";
         //Assert
         assertEquals(expected, actual);    
     }
-    
+    //Test Task Status
     @Test
     public void testTaskTwoStatus()
     {
@@ -189,7 +195,7 @@ public class ProjectP2Test {
         String expected = "Doing";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String actual = p.setStatus(2);
+        String actual = p.getStatus(1);
         //Assert
         assertEquals(expected, actual);    
     }

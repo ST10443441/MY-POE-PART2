@@ -4,6 +4,7 @@
  */
 package projectp2;
 
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,8 +14,7 @@ import static org.junit.Assert.*;
  */
 public class ProjectP2Test {
     
-    public ProjectP2Test() {
-    }
+    public ProjectP2Test() {    }
 
     
      boolean run = false;
@@ -31,7 +31,6 @@ public class ProjectP2Test {
         assertEquals(expected, actual);
     }
     //Test Password
-    
      @Test
     public void testPassword()
     {
@@ -86,7 +85,8 @@ public class ProjectP2Test {
      //Arrange 
         String exTaskName = "Login Feature";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        TaskClass p = new TaskClass();
+        p.settName();
         String acTaskName = p.gettName();
         //Assert
         assertEquals(exTaskName, acTaskName);    
@@ -109,7 +109,8 @@ public class ProjectP2Test {
      //Arrange 
         String expected = "Robyn Harrison";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        TaskClass p = new TaskClass();
+        p.setDevDetails();
         String actual = p.getDevDetails();
         //Assert
         assertEquals(expected, actual);    
@@ -121,7 +122,9 @@ public class ProjectP2Test {
      //Arrange 
         String expected = "8hrs";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        TaskClass p = new TaskClass();
+        p.setDur();
+        
         String actual = String.valueOf(p.getDur())+"hrs";
         //Assert
         assertEquals(expected, actual);    
@@ -134,6 +137,7 @@ public class ProjectP2Test {
         String expected = "To Do";
         //Act 
         ProjectP2 p = new ProjectP2();
+        
         String actual = p.getStatus(0);
         //Assert
         assertEquals(expected, actual);    
@@ -147,7 +151,8 @@ public class ProjectP2Test {
      //Arrange 
         String exTaskName = "Add Task Feature";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        TaskClass p = new TaskClass();
+        p.settName();
         String acTaskName = p.gettName();
         //Assert
         assertEquals(exTaskName, acTaskName);    
@@ -170,7 +175,8 @@ public class ProjectP2Test {
      //Arrange 
         String expected = "Mike Smith";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        TaskClass p = new TaskClass();
+        p.setDevDetails();
         String actual = p.getDevDetails();
         //Assert
         assertEquals(expected, actual);    
@@ -182,7 +188,8 @@ public class ProjectP2Test {
      //Arrange 
         String expected = "10hrs";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        TaskClass p = new TaskClass();
+        p.setDur();
         String actual = String.valueOf(p.getDur())+"hrs";
         //Assert
         assertEquals(expected, actual);    
@@ -195,7 +202,7 @@ public class ProjectP2Test {
         String expected = "Doing";
         //Act 
         ProjectP2 p = new ProjectP2();
-        String actual = p.getStatus(1);
+        String actual = p.getStatus(2);
         //Assert
         assertEquals(expected, actual);    
     }

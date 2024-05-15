@@ -15,20 +15,18 @@ public class ProjectP2 {
 
     
     //For Adding Tasks
-    String tName, tDes,devDetails,tID,tStatus;
-    int tNum ,duration,totDuration = 0;
+   
+    
+    int totDuration = 0;
     String[] status = {"To Do","Done","Doing"};
     
-    public ProjectP2()
-    {
-
-    }
+    public ProjectP2(){}
     //Adding Variables to global 
     private String userName, password, nameFirst, nameLast;
     static BaseForm form = new BaseForm();
     static EasyKanBan kanBan = new EasyKanBan();
-    TaskClass taskClass = new TaskClass();
-//    public String message;
+    static TaskClass taskClass = new TaskClass();
+
     
     public static void main(String[] args) 
     {
@@ -283,89 +281,30 @@ public class ProjectP2 {
         for (int i = 0; i < t; i++) 
         {
             //Gets the Data from the User
-            settName();
-            setDevDetails();
+            taskClass.settName();
+            taskClass.setDevDetails();
             //MultiChoice for the Status of the Task being added
             choice = JOptionPane.showOptionDialog(null, "Choose an Option:", "Options", JOptionPane.YES_NO_CANCEL_OPTION, 0, null, status, status[0]);
             
-            setStatus(choice);
-            setDur();
-            taskClass.setTotalHours(duration);
-            settDes();
-            tNum = i+ last;
+            taskClass.setStatus(choice,status);
+            taskClass.setDur();
+            taskClass.calcTotalHours();
+            taskClass.settDes();
+            taskClass.settNum(i+ last);
             
             //Generates the Task Id 
-            settID();
+            taskClass.settID();
             
-            taskClass.printTaskDetails(kanBan,tName, tDes, devDetails, tID, tStatus, tNum, duration);
+            taskClass.printTaskDetails(kanBan);
         }
         JOptionPane.showMessageDialog(null, taskClass.returnTotalHours()+" Hours","Total Duration",1);
     }
     
     //Getters
-    public String gettName() {
-        return tName;
-    }
-    public String gettDes() {
-        return tDes;
-    }
-    public String getDevDetails() {
-        return devDetails;
-    }
-    public String gettID() {
-        return tID;
-    }
-    public String gettStatus() {
-        return tStatus;
-    }
-    public int gettNum() {
-        return tNum;
-    }
     public String getStatus(int t) {
         return status[t];
     }
-    public int getDur() {
-        return duration;
-    }
-    
-    //Setters
-    public void settName(){
-        tName = JOptionPane.showInputDialog("Task Name");
-    }
-    public void setDevDetails(){
-        devDetails = JOptionPane.showInputDialog("First and Last Name of Dev");
-    }
-    public void settDes(){
-        tDes = addNewDescription();
-        
-    }
-    public void  settID(){
-        tID  = taskClass.createTaskID(tName, tNum);
-    }
-    public void  setStatus(int i){
-        tStatus = status[i];
-    }
-    public void setDur(){
-        duration = Integer.parseInt(JOptionPane.showInputDialog("How will it take in hours?"));
-    }
-    
-    //Gets and tests that the Description is less than 50 Characters
-    private String addNewDescription()
-    {
-        //Declare Variables
-        String des;
-        //Input
-        des = JOptionPane.showInputDialog("Description Under 51 Characters");
-        if (taskClass.checkTaskDescription(des))
-        {
-            do {            
-                des = JOptionPane.showInputDialog("Please enter a task descrpitin of less than 50 characters");
-            } while (des.length() > 50);
-        }
-        else 
-            output("Task Successfully Captured");
-        return des;
-    }
+ 
 }
 
 //OpenAI. (2024). ChatGPT (Jun 21 version) [GPT-3.5 model]. https://chat.openai.com/ 

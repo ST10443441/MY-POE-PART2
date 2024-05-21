@@ -51,7 +51,7 @@ jobs:
         
         # list contents or directory
       - name: List contents test package
-        working-directory: ./test/st
+        working-directory: ./test/ProjectP2
         run: ls
         
         #run Message Class tests and output report 

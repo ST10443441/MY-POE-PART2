@@ -35,19 +35,19 @@ jobs:
 
     # list contents of src to verify that classess compiled 
       - name: List contents of src directory after compile
-        working-directory: ./src/st10443441
+        working-directory: ./src/ProjectP2
         run: ls
         
         
        # copy compiled classes to test directory 
       - name : copy compiled classes to testresources directory 
-        working-directory: ./src/st10443441
+        working-directory: ./src/ProjectP2
         run: cp -t  "../../test/st10443441" Message.class St.class
         
         #copy compiled tests 
       - name : copy compiled Test classes to testresources directory 
-        working-directory: ./test/st10443441
-        run: cp -t  "../../testresources/" Message.class St10443441.class 
+        working-directory: ./test/ProjectP2
+        run: cp -t  "../../testresources/" Message.class ProjectP2.class 
         
         # list contents or directory
       - name: List contents test package
@@ -59,6 +59,6 @@ jobs:
         working-directory: ./test
         run: |
          ls
-         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  st10443441.MessageTest  
+         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  ProjectP2.ProjectP2Test  
          
-         
+        

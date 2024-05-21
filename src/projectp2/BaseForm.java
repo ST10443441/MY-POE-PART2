@@ -17,7 +17,7 @@ public class BaseForm extends javax.swing.JFrame {
      */
     public BaseForm() {
         initComponents();
-        
+         
     }
 
     /**

@@ -22,7 +22,7 @@ public class TaskClass {
     //Test Task Description length
     public boolean checkTaskDescription(String des)
     {
-        return (des.length() > 50);
+        return (des.length() < 50);
     }
     //Create the Task ID 
     public String createTaskID(String tName, int tNum)
@@ -58,15 +58,14 @@ public class TaskClass {
     }
     
     //Setters
-    public void settName(){
-        tName = JOptionPane.showInputDialog("Task Name");
+    public void settName(String b){
+        tName = b;
     }
-    public void setDevDetails(){
-        devDetails = JOptionPane.showInputDialog("First and Last Name of Dev");
+    public void setDevDetails(String b){
+        devDetails = b;
     }
-    public void settDes(){
-        tDes = addNewDescription();
-        
+    public void settDes(String b){
+        tDes = addNewDescription(b);
     }
     public void  settID(){
         tID  = createTaskID(tName, tNum);
@@ -74,8 +73,8 @@ public class TaskClass {
     public void  setStatus(int i,String[] status){
         tStatus = status[i];
     }
-    public void setDur(){
-        duration = Integer.parseInt(JOptionPane.showInputDialog("How will it take in hours?"));
+    public void setDur(int b){
+        duration = b;
     }
     public void settNum(int tNum) {
         this.tNum = tNum;
@@ -95,13 +94,13 @@ public class TaskClass {
     
     
     //Gets and tests that the Description is less than 50 Characters
-    private String addNewDescription()
+    private String addNewDescription(String b)
     {
         ProjectP2 obj = new ProjectP2();
         //Declare Variables
-        String des;
+        String des = b;
         //Input
-        des = JOptionPane.showInputDialog("Description Under 51 Characters");
+        
         if (checkTaskDescription(des))
         {
             do {            

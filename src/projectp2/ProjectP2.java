@@ -20,7 +20,7 @@ public class ProjectP2 {
     int totDuration = 0;
     String[] status = {"To Do","Done","Doing"};
     
-    public ProjectP2(){}
+    public ProjectP2(){   }
     //Adding Variables to global 
     private String userName, password, nameFirst, nameLast;
     static BaseForm form = new BaseForm();
@@ -44,7 +44,8 @@ public class ProjectP2 {
         {
         //Check Username
             //Input
-            userName = setUsername();
+            String temp = JOptionPane.showInputDialog("Please Enter Username To Register");
+            setUsername(temp);
             
             //Ensure no null values
             if (userName == null)
@@ -70,7 +71,8 @@ public class ProjectP2 {
         {
             //Check Password
             //Input
-            password = setPassword();
+            String temp = JOptionPane.showInputDialog("Please Enter Username To Register");
+            setPassword(temp);
             
             //Ensure no null values
             if (password == null)
@@ -149,14 +151,25 @@ public class ProjectP2 {
         return loginCheck;
     }
     //Open input for user's Username to register
-    public String setUsername() 
+    public void setUsername(String b) 
     {
-        return JOptionPane.showInputDialog("Please Enter Username To Register");
+        userName = b; 
+        JOptionPane.showInputDialog("Please Enter Username To Register");
     }
-    //Open input for user's Password to register
-    public String setPassword() 
+    public String getUsername() 
     {
-        return JOptionPane.showInputDialog("Enter Password For Registation");
+        return userName;
+    }
+    
+    
+    //Open input for user's Password to register
+    public void setPassword(String b) 
+    {
+        password = b;
+    }
+    public String getPassword() 
+    {
+        return password;
     }
     //Check the Username is formatted correctly
     public boolean checkUserName(String s)
@@ -280,16 +293,20 @@ public class ProjectP2 {
         //Adds an ammount of tasks based on User's choice 
         for (int i = 0; i < t; i++) 
         {
+            String temp = JOptionPane.showInputDialog("Task Name");
             //Gets the Data from the User
-            taskClass.settName();
-            taskClass.setDevDetails();
+            taskClass.settName(temp);
+            temp = JOptionPane.showInputDialog("First and Last Name of Dev");
+            taskClass.setDevDetails(temp);
             //MultiChoice for the Status of the Task being added
             choice = JOptionPane.showOptionDialog(null, "Choose an Option:", "Options", JOptionPane.YES_NO_CANCEL_OPTION, 0, null, status, status[0]);
             
             taskClass.setStatus(choice,status);
-            taskClass.setDur();
+            int tempInt = Integer.parseInt(JOptionPane.showInputDialog("How will it take in hours?"));
+            taskClass.setDur(tempInt);
             taskClass.calcTotalHours();
-            taskClass.settDes();
+            temp = JOptionPane.showInputDialog("Description Under 51 Characters");
+            taskClass.settDes(temp);
             taskClass.settNum(i+ last);
             
             //Generates the Task Id 

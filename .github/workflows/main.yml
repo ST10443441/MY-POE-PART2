@@ -31,27 +31,27 @@ jobs:
      # Compiles classes to test 
       - name: compile classes
         working-directory: ./src
-        run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar" ./st2123456/St2123456.java ./st2123456/Message.java  "../test/st2123456/St2123456Test.java"  "../test/st2123456/MessageTest.java"  
+        run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar" ./st10443441/St10443441.java ./st2123456/Message.java  "../test/st2123456/St2123456Test.java"  "../test/st2123456/MessageTest.java"  
 
     # list contents of src to verify that classess compiled 
       - name: List contents of src directory after compile
-        working-directory: ./src/st2123456
+        working-directory: ./src/st10443441
         run: ls
         
         
        # copy compiled classes to test directory 
       - name : copy compiled classes to testresources directory 
-        working-directory: ./src/st2123456
-        run: cp -t  "../../test/st2123456" Message.class St2123456.class
+        working-directory: ./src/st10443441
+        run: cp -t  "../../test/st10443441" Message.class St.class
         
         #copy compiled tests 
       - name : copy compiled Test classes to testresources directory 
-        working-directory: ./test/st2123456
-        run: cp -t  "../../testresources/" Message.class St2123456.class 
+        working-directory: ./test/st10443441
+        run: cp -t  "../../testresources/" Message.class St10443441.class 
         
         # list contents or directory
       - name: List contents test package
-        working-directory: ./test/st2123456
+        working-directory: ./test/st
         run: ls
         
         #run Message Class tests and output report 
@@ -59,6 +59,6 @@ jobs:
         working-directory: ./test
         run: |
          ls
-         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  st2123456.MessageTest  
+         java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class  st10443441.MessageTest  
          
          

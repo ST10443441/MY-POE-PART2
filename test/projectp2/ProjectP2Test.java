@@ -5,7 +5,7 @@
 package projectp2;
 
 
-import Test;
+import Test.;
 import static Assert.*;
 
 /**

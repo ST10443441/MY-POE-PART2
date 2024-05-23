@@ -56,7 +56,7 @@ jobs:
         #copy compiled tests 
       - name : copy compiled Test classes to testresources directory 
         working-directory: ./build/test/classes/projectp2
-        run: cp -t  ProjectP2.class 
+        run: cp -t "../../../../src/lib/junit-platform-console-standalone-1.6.0.jar" ProjectP2.class 
         
         # list contents or directory
       - name: List contents test package

@@ -36,9 +36,7 @@ jobs:
      # list contents or directory
       - name: List contents
         run: ls
-     # list Test Resourses
-      - name: List Test Resorces
-        run: ls ../testresources/
+     
      # Compiles classes to test 
       - name: compile classes
         working-directory: ./src
@@ -48,7 +46,9 @@ jobs:
       - name: List contents of src directory after compile
         working-directory: ./src/projectp2
         run: ls
-        
+       # list Test Resourses
+      - name: List Test Resorces
+        run: ls ../testresources/ 
         
        # copy compiled classes to test directory 
       - name : copy compiled classes to testresources directory 

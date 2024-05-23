@@ -54,9 +54,9 @@ jobs:
         run: cp -t  "../../test/projectp2" ProjectP2.class
         
         #copy compiled tests 
-      #- name : copy compiled Test classes to testresources directory 
-        #working-directory: ./test/projectp2
-        #run: cp -t  "../../testresources/" ProjectP2.class 
+      - name : copy compiled Test classes to testresources directory 
+        working-directory: ./build/test/classes/projectp2
+        run: cp -t  "../../testresources/" ProjectP2.class 
         
         # list contents or directory
       - name: List contents test package

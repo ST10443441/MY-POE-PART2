@@ -41,7 +41,7 @@ jobs:
       - name: compile classes
         #working-directory: ./src
         #run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar;." ./projectp2/ProjectP2.java ./projectp2/TaskClass.java  ./projectp2/BaseForm.java ./projectp2/EasyKanBan.java "../test/projectp2/ProjectP2Test.java"  
-        run: javac -cp "lib/junit-platform-console-standalone-1.6.0.jar:." .src/projectp2/ProjectP2.java .src/projectp2/TaskClass.java  .src/projectp2/BaseForm.java .src/projectp2/EasyKanBan.java "../test/projectp2/ProjectP2Test.java"      
+        run: javac -cp "lib/junit-platform-console-standalone-1.6.0.jar:." ./projectp2/ProjectP2.java ./projectp2/TaskClass.java  ./projectp2/BaseForm.java ./projectp2/EasyKanBan.java "../test/projectp2/ProjectP2Test.java"      
 
     # list contents of src to verify that classess compiled 
       - name: List contents of src directory after compile

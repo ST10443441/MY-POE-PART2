@@ -27,9 +27,9 @@ jobs:
 
     #Set up the Node.js 20
       - name: Set up JDK 20
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
-          java-version: '11'
+          java-version: '20'
           distribution: 'temurin'
           #node-version: '20'
       
@@ -40,9 +40,8 @@ jobs:
      # Compiles classes to test 
       - name: compile classes
         working-directory: ./src
-        #run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar;." ./projectp2/ProjectP2.java ./projectp2/TaskClass.java  ./projectp2/BaseForm.java ./projectp2/EasyKanBan.java "../test/projectp2/ProjectP2Test.java"  
-        run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar" ./projectp2/ProjectP2.java ./projectp2/TaskClass.java ./projectp2/Users.java ./projectp2/BaseForm.java ./projectp2/EasyKanBan.java "../test/projectp2/ProjectP2Test.java"      
-
+        run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar" ./projectp2/BaseForm.java ./projectp2/EasyKanBan.java ./projectp2/ProjectP2.java ./projectp2/TaskClass.java ./projectp2/Users.java  "../test/projectp2/ProjectP2Test.java"      
+                                                                   
     # list contents of src to verify that classess compiled 
       - name: List contents of src directory after compile
         working-directory: ./src/projectp2
@@ -51,7 +50,7 @@ jobs:
        # copy compiled classes to test directory 
       - name : copy compiled classes to testresources directory 
         working-directory: ./src/projectp2
-        run: cp -t  "../../test/projectp2" ProjectP2.class TaskClass.class BaseForm.class EasyKanBan.class Users.class
+        run: cp -t  "../../test/projectp2"  TaskClass.class  Users.class BaseForm.class EasyKanBan.class ProjectP2.class
         
         #copy compiled tests 
       - name : copy compiled Test classes to testresources directory 
@@ -69,5 +68,3 @@ jobs:
         run: |
          ls
          java -Djava.awt.headless=true -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class projectp2.ProjectP2Test
-         
-        

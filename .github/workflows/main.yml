@@ -38,6 +38,7 @@ jobs:
         run: ls
       # list Test Resourses
       - name: List Test Resorces
+        working-directory: ./src
         run: ls "../testresources/"
      
      # Compiles classes to test 

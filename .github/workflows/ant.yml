@@ -21,5 +21,9 @@ jobs:
       with:
         java-version: '20'
         distribution: 'temurin'
+    - name: List contents
+      run: ls  
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
+
+      

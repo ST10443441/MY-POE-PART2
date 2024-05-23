@@ -24,11 +24,15 @@ jobs:
         distribution: 'temurin'
         node-version: '20'
     #List the Contents of the file for debugging
-    - name: List contents
-      run: ls  
+    #- name: List contents
+    #  run: ls  
     #Installs the dependencies specified in package.json
-    - name: Install dependencies
-      run: npm install
+    #- name: Install dependencies
+    #  run: npm install
+    # Compiles classes to test 
+    - name: compile classes
+      working-directory: ./src
+      run: javac -cp "../testresources/junit-platform-console-standalone-1.6.0.jar" ./projectp2/ProjectP2.java ./projectp2/TaskClass.java "../test/projectp2/ProjectP2Test.java" 
     #Build the Project
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml

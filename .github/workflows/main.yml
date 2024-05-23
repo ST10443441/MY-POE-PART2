@@ -56,7 +56,7 @@ jobs:
         #copy compiled tests 
       - name : copy compiled Test classes to testresources directory 
         working-directory: ./build/test/classes/projectp2
-        run: cp -t "../../../../src/lib/" ProjectP2.class 
+        run: cp -t "../../../../src/lib/" ProjectP2Test.class 
         
         # list contents or directory
       - name: List contents test package

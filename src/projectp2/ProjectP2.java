@@ -154,7 +154,7 @@ public class ProjectP2 {
     public void setUsername(String b) 
     {
         userName = b; 
-        JOptionPane.showInputDialog("Please Enter Username To Register");
+        //JOptionPane.showInputDialog("Please Enter Username To Register");
     }
     public String getUsername() 
     {
@@ -188,7 +188,7 @@ public class ProjectP2 {
 
         //Check Password is Atleast 8 Characters long 
         len = p.length() >= 8;                                       //(OpenAI 2024)
-        System.out.println("Password Length: "+ password.length());     //Show Dev Password Length
+        System.out.println("Password Length: "+ p.length());     //Show Dev Password Length
 
         //Check Password Contains Capital Letter
         for (int i = 0; i < p.length(); i++) 

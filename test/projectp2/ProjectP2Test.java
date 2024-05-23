@@ -20,7 +20,7 @@ public class ProjectP2Test {
     @BeforeClass
     public static void setUpHeadlessMode() 
     {
-        System.setProperty("java.awt.headless", "false");
+        System.setProperty("java.awt.headless", "true");
     }
     
     

@@ -205,8 +205,9 @@ public class ProjectP2Test {
         String expected = "Doing";
         //Act 
         ProjectP2 p = new ProjectP2();
+        
         String actual = p.getStatus(2);
         //Assert
-        assertEquals(expected, actual);    
+        assertEquals(expected, actual);   
     }
 }

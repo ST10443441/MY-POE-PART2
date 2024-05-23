@@ -4,7 +4,7 @@
  */
 package projectp2;
 
-import java.lang.reflect.Modifier;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -30,7 +30,7 @@ public class ProjectP2 {
     
     public static void main(String[] args) 
     {
-        //form.setVisible(true);
+        form.setVisible(true);
         
     }
     //Register a new user

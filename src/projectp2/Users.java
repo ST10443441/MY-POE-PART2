@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 public class Users 
 {
     private String userName, password, nameFirst, nameLast;
-    ProjectP2 p = new ProjectP2();
+    
     public Users(){}
     
     //Register a new user
@@ -38,12 +38,12 @@ public class Users
             if (checkUserName(userName))
             {
                 System.out.println(userName);       //Show Username for Dev
-                p.output("Username Successfully Captured"); 
+                output("Username Successfully Captured"); 
                 userVal = true;
             }
             else //Username is incorrectly formatted
             {
-                p.output("Username is not correctly formatted, "       
+                output("Username is not correctly formatted, "       
                         + "\nPlease ensure that your username contains \nan underscore"
                         + " and \nis no more than 5 characters in length");
             }
@@ -64,12 +64,12 @@ public class Users
             if (checkPasswordComplexity(password))
             {                
                 System.out.println(password);       //Show Password for Dev
-                p.output("Password Successfully captured");
+                output("Password Successfully captured");
                 passVal = true;
             }
             else    //Password incorrectly formatted
             {
-                p.output("Password is not correct "
+                output("Password is not correct "
                         + "please ensure that your Password contains atleast: \n8 Characters"
                         + ", \na capital letter, \na number and \na special character");
             }
@@ -81,7 +81,7 @@ public class Users
         
         if ((checkUserName(userName))&&checkPasswordComplexity(password))
         {
-            p.output("Successfully Registered");
+            output("Successfully Registered");
             //Return True if Username and Password are valid
             return true;
         }
@@ -167,22 +167,29 @@ public class Users
         //Test if usernames and Passwords match
             if ((userLogin.equals(userName))&&(userPass.equals(password)))
             {
-                p.output("Welcome "+nameFirst+", "+nameLast    
+                output("Welcome "+nameFirst+", "+nameLast    
                         + " it is great to see you");        
                 loginCheck = true;
             }
             else 
             {
-                p.output("Usernsme or password incorrect please try again");
+                output("Usernsme or password incorrect please try again");
                 i++;
             }
         }while ((!loginCheck)&&(i != 3));                                   //(W3Schools,2015)
         
-        p.output(p.returnLoginStatus(loginCheck));
+        output(returnLoginStatus(loginCheck));
         return loginCheck;
     }
     
-    
+    public void output(String t){
+        ProjectP2 p = new ProjectP2();
+        p.output(t);
+    }
+    public String returnLoginStatus(boolean b){
+        ProjectP2 p = new ProjectP2();
+        return p.returnLoginStatus(b);
+    }
     
     //Setters
     public void setUsername(String b){

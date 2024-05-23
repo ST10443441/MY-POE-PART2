@@ -7,7 +7,6 @@ package projectp2;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.BeforeClass;
 
 /**
  *
@@ -17,11 +16,7 @@ public class ProjectP2Test {
     
     public ProjectP2Test() {    }
 
-    @BeforeClass
-    public static void setUpHeadlessMode() 
-    {
-        System.setProperty("java.awt.headless", "true");
-    }
+    
     
     
      boolean run = false;

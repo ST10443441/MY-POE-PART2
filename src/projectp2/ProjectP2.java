@@ -30,8 +30,8 @@ public class ProjectP2 {
     
     public static void main(String[] args) 
     {
-        form.setVisible(true);
-        kanBan.setVisible(true);
+        //form.setVisible(true);
+        
     }
     //Register a new user
     public boolean registerUser()

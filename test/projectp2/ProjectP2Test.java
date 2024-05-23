@@ -16,9 +16,7 @@ public class ProjectP2Test {
     
     public ProjectP2Test() {    }
 
-    
-    
-    
+
      boolean run = false;
     //Test Username
      @Test
@@ -141,7 +139,7 @@ public class ProjectP2Test {
         String expected = "To Do";
         
         //Act 
-        ProjectP2 p = new ProjectP2();
+        TaskClass p = new TaskClass();
         
         String actual = p.getStatus(0);
         //Assert
@@ -206,7 +204,7 @@ public class ProjectP2Test {
      //Arrange 
         String expected = "Doing";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        TaskClass p = new TaskClass();
         
         String actual = p.getStatus(2);
         //Assert

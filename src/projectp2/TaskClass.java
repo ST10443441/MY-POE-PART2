@@ -17,7 +17,7 @@ public class TaskClass {
     private String tName, tDes,devDetails,tID,tStatus;
     private int tNum ,duration;
     private int totDur = 0;
-    
+    String[] status = {"To Do","Done","Doing"};
     public TaskClass(){}
     //Test Task Description length
     public boolean checkTaskDescription(String des)
@@ -89,7 +89,9 @@ public class TaskClass {
     public int getDur() {
         return duration;
     }
-    
+    public String getStatus(int t) {
+        return status[t];
+    }
     
     
     

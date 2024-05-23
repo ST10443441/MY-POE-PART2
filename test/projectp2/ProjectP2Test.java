@@ -25,7 +25,7 @@ public class ProjectP2Test {
         //Arrange 
         String expected = "kyl_1";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        Users p = new Users();
         p.setUsername("kyl_1");
         String actual = p.getUsername();
         //Assert
@@ -38,7 +38,7 @@ public class ProjectP2Test {
         //Arrange 
         String expected = "Ch&&sec@ke99!";
         //Act 
-        ProjectP2 p = new ProjectP2();
+        Users p = new Users();
         p.setPassword("Ch&&sec@ke99!");
         String actual = p.getPassword();
         //Assert
@@ -51,7 +51,7 @@ public class ProjectP2Test {
     public void testUsernameRequirements()
     {
         //Act
-        ProjectP2 p = new ProjectP2();
+        Users p = new Users();
         boolean check = p.checkUserName("kyl_1");
         //Assert
         assertTrue(check);
@@ -61,7 +61,7 @@ public class ProjectP2Test {
     public void testPasswordComplexity()
     {
         //Act
-        ProjectP2 p = new ProjectP2();
+        Users p = new Users();
         boolean check = p.checkPasswordComplexity("Ch&&sec@ke99!");
         //Assert
         assertTrue(check);
@@ -73,7 +73,7 @@ public class ProjectP2Test {
         //Arrange 
         if (run){
         //Act 
-        ProjectP2 p = new ProjectP2();
+        Users p = new Users();
         boolean l = p.loginUser();
         //Assert
         assertTrue(l);  }  

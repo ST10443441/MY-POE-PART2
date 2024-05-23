@@ -6,7 +6,7 @@
 package projectp2;
 
 import javax.swing.JOptionPane;
-import static projectp2.ProjectP2.kanBan;
+
 
 /**
  *
@@ -70,7 +70,7 @@ public class TaskClass {
     public void  settID(){
         tID  = createTaskID(tName, tNum);
     }
-    public void  setStatus(int i,String[] status){
+    public void  setStatus(int i){
         tStatus = status[i];
     }
     public void setDur(int b){

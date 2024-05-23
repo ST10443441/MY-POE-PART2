@@ -68,6 +68,7 @@ jobs:
         working-directory: ./test
         run: |
          ls
+         java -Djava.awt.headless=true -jar BaseForm.jar
          java -jar  "../testresources/junit-platform-console-standalone-1.6.0.jar" -cp "." --select-class projectp2.ProjectP2Test
          
         

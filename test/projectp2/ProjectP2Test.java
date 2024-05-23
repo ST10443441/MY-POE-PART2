@@ -5,8 +5,8 @@
 package projectp2;
 
 
-import Test.*;
-import static Assert.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
